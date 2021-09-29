@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Bienvenido a mi proyecto de gestión de turnos para una clínica odontológica
+
+En el link https://afgamalerio.github.io/ClinicaOdontologica/ se puede ver la web.
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
