@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ClinicaOdontologica/static/css/main.229d0cf6.chunk.css",
-    "main.js": "/ClinicaOdontologica/static/js/main.0c00f6c5.chunk.js",
-    "main.js.map": "/ClinicaOdontologica/static/js/main.0c00f6c5.chunk.js.map",
+    "main.js": "/ClinicaOdontologica/static/js/main.fe352fcd.chunk.js",
+    "main.js.map": "/ClinicaOdontologica/static/js/main.fe352fcd.chunk.js.map",
     "runtime-main.js": "/ClinicaOdontologica/static/js/runtime-main.8ea8833a.js",
     "runtime-main.js.map": "/ClinicaOdontologica/static/js/runtime-main.8ea8833a.js.map",
     "static/css/2.f2512455.chunk.css": "/ClinicaOdontologica/static/css/2.f2512455.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.f2512455.chunk.css",
     "static/js/2.4c8f98d1.chunk.js",
     "static/css/main.229d0cf6.chunk.css",
-    "static/js/main.0c00f6c5.chunk.js"
+    "static/js/main.fe352fcd.chunk.js"
   ]
 }
