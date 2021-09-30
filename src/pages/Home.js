@@ -27,6 +27,7 @@ function Home() {
         setAppointmentsData(resAppointment);
 
       } catch (err) {
+        alert("Para recibir y editar los datos, primero debe iniciar el servidor en el puerto 8080")
         console.log(err)
       }
     }
