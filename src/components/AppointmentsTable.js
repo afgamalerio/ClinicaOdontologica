@@ -1,7 +1,8 @@
 import { Col, Row, Table, Button } from "react-bootstrap"
 import { useHistory, useLocation } from "react-router";
+import appointmentsService from "../services/appointments";
 
-export const AppointmentsTable = ({ appointmentsData }) => {
+export const AppointmentsTable = ({ appointmentsData, setFetch }) => {
 
     const history = useHistory();
     const location = useLocation();
@@ -12,6 +13,16 @@ export const AppointmentsTable = ({ appointmentsData }) => {
             history.push("/turnos")
         } else {
             history.push("/");
+        }
+    }
+
+    const eliminar = async (id) => {
+        try {
+            await appointmentsService.deleteAppointmentsById(id);
+            setFetch(prev => !prev)
+            alert("El turno fue eliminado")
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -39,6 +50,9 @@ export const AppointmentsTable = ({ appointmentsData }) => {
                         <td>{appointment.fecha}</td>
                         <td>{appointment.odontologo?.nombre}</td>
                         <td>{appointment.paciente?.nombre}</td>
+                        <td>
+                            <Button onClick={() => eliminar(appointment.id)}>Eliminar</Button>
+                        </td>
                     </tr>
                 )) : <tr><td colSpan="5">Aún no hay turnos cargados, agrega un turno para verlo en la tabla.</td></tr>}
                 </tbody>

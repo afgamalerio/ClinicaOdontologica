@@ -8,10 +8,10 @@ function PatientForm({ setFetch }) {
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = async (event) => {
+    const onSubmit = async (data) => {
         try {
             setLoading(true);
-            await patientService.postPatients(event)
+            await patientService.postPatients(data)
         } catch (err) {
             console.log(err)
 

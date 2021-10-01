@@ -36,7 +36,7 @@ function Appointment() {
     <Container className="Appointment">
       <Row>
         <Col md={6}>
-          <AppointmentsTable appointmentsData={appointmentsData} />
+          <AppointmentsTable appointmentsData={appointmentsData} setFetch={setFetch} />
         </Col>
         
         <Col md={6}>

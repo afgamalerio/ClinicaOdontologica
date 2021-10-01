@@ -17,7 +17,7 @@ function AppointmentForm({ setFetch, dentistsData, patientsData }) {
         }
         data.odontologo = dentistsData.find(d => d.id === dentistId)
         data.paciente = patientsData.find(p => p.id === patientId)
-        console.log(data)
+
         try {
             setLoading(true);
             await appointmentsService.postAppointments(data)

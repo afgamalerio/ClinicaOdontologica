@@ -1,7 +1,8 @@
 import { Table, Button, Row, Col } from "react-bootstrap"
 import { useHistory, useLocation } from "react-router"
+import dentistsService from "../services/dentists";
 
-export const DentistsTable = ({ dentistsData }) => {
+export const DentistsTable = ({ dentistsData, setFetch  }) => {
 
     const history = useHistory();
     const location = useLocation();
@@ -15,6 +16,15 @@ export const DentistsTable = ({ dentistsData }) => {
         }
     }
 
+    const eliminar = async (id) => {
+        try {
+            await dentistsService.deleteDentistsById(id);
+            setFetch(prev => !prev)
+            alert("El dentista fue eliminado")
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     return (
 
@@ -41,6 +51,9 @@ export const DentistsTable = ({ dentistsData }) => {
                             <td>{dentist.nombre}</td>
                             <td>{dentist.apellido}</td>
                             <td>{dentist.matricula}</td>
+                            <td>
+                                <Button onClick={() => eliminar(dentist.id)}>Eliminar</Button>
+                            </td>
                         </tr>
                     )) : <tr><td colSpan="5">Aún no hay odontologos cargados, agrega un odontologo para verlo en la tabla.</td></tr>}
                 </tbody>

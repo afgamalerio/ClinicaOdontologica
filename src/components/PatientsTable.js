@@ -1,7 +1,8 @@
 import { Col, Row, Table, Button } from "react-bootstrap"
 import { useHistory, useLocation } from "react-router";
+import patientService from "../services/patients";
 
-export const PatientsTable = ({ patientsData }) => {
+export const PatientsTable = ({ patientsData, setFetch  }) => {
 
     const history = useHistory();
     const location = useLocation();
@@ -12,6 +13,16 @@ export const PatientsTable = ({ patientsData }) => {
             history.push("/pacientes")
         } else {
             history.push("/");
+        }
+    }
+
+    const eliminar = async (id) => {
+        try {
+            await patientService.deletePatientsById(id);
+            setFetch(prev => !prev)
+            alert("El paciente fue eliminado")
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -37,14 +48,17 @@ export const PatientsTable = ({ patientsData }) => {
                     </tr>
                 </thead>
                 <tbody>
-                {patientsData.length ? patientsData.map((patient, index) => (
-                    <tr key={index}>
-                        <td>{patient.nombre}</td>
-                        <td>{patient.apellido}</td>
-                        <td>{patient.dni}</td>
-                        <td>{patient.fechaIngreso}</td>
-                    </tr>
-                )) : <tr><td colSpan="5">Aún no hay pacientes cargados, agrega un paciente para verlo en la tabla.</td></tr>}
+                    {patientsData.length ? patientsData.map((patient, index) => (
+                        <tr key={index}>
+                            <td>{patient.nombre}</td>
+                            <td>{patient.apellido}</td>
+                            <td>{patient.dni}</td>
+                            <td>{patient.fechaIngreso}</td>
+                            <td>
+                                <Button onClick={() => eliminar(patient.id)}>Eliminar</Button>
+                            </td>
+                        </tr>
+                    )) : <tr><td colSpan="5">Aún no hay pacientes cargados, agrega un paciente para verlo en la tabla.</td></tr>}
                 </tbody>
             </Table>
         </div>

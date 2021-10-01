@@ -27,7 +27,7 @@ function Patient() {
     <Container className="Patient">
       <Row>
         <Col md={6}>
-          <PatientsTable patientsData={patientsData} />
+          <PatientsTable patientsData={patientsData} setFetch={setFetch} />
         </Col>
         
         <Col md={6}>
